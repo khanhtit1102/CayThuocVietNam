@@ -3,7 +3,7 @@
     require_once __DIR__. "/../../autoload/autoload.php";
 
     /** lay ra danh muc sp*/
-    $category = $db->fetchAll("category");
+    
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {   
         $data = 
@@ -41,26 +41,29 @@
         //neu error rỗng = không có lỗi thì ...
         if(empty($error))
         {
-            if(isset($_FILES['anh']))
-            {
-                $file_name = $_FILES['anh']['name'];
-                $file_tmp = $_FILES['anh']['tmp_name'];
-                $file_type = $_FILES['anh']['type'];
-                $file_erro = $_FILES['anh']['error'];
-
-                if($file_erro == 0)
+            $data['anh'] = '';
+            for ($i=0; $i < count($_FILES['anh']["name"]); $i++) { 
+                echo $_FILES['anh']["name"][$i];
+                if(isset($_FILES['anh']["name"][$i]))
                 {
-                    $part= ROOT ."product/";
-                    $data['anh'] = $file_name;
+                    $file_name = $_FILES['anh']["name"][$i];
+                    $file_tmp = $_FILES['anh']["tmp_name"][$i];
+                    $file_type = $_FILES['anh']["type"][$i];
+                    $file_erro = $_FILES['anh']["error"][$i];
+                    if($file_erro == 0)
+                    {
+                        $part= ROOT ."product/";
+                        $data['anh'] = $data['anh'].$file_name.'|';
+                        move_uploaded_file($file_tmp,$part.$file_name);
+                    }
                 }
             }
-
+            
             $id_insert = $db->insert("caythuoc",$data);
             if($id_insert)
             {   
-                move_uploaded_file($file_tmp,$part.$file_name);
                 $_SESSION['success'] = "Thêm cây thuốc mới thành công";
-                 redirectAdmin("caythuoc");
+                redirectAdmin("caythuoc");
             }
             else
             {
@@ -68,6 +71,7 @@
             }
         }
     }
+    $category = $db->fetchAll("category");
  ?>
 
 <?php  require_once __DIR__. "/../../layouts/header.php";?>
@@ -150,10 +154,14 @@
 
                                  <div class="form-group">
                                     <label for="exampleInputEmail1">Hình ảnh</label>
-                                    <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="anh">
+                                    <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="anh[]">
                                      <?php if(isset($error['anh'])): ?>
                                         <p class="text-danger"><?php echo $error['anh'] ?></p>       
                                     <?php endif ?>
+                                    <div class="form-group">
+                                        <br>
+                                        <button type="button" class="btn btn-warning addMore">Thêm hình ảnh</button>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -166,4 +174,5 @@
                             </form>
                         </div>
                     </div>
+                    
 <?php  require_once __DIR__. "/../../layouts/footer.php";?>

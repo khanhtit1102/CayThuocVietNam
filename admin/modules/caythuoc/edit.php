@@ -34,17 +34,21 @@
            
         if(empty($error))
         {
-           if(isset($_FILES['anh']))
-            {
-                $file_name = $_FILES['anh']['name'];
-                $file_tmp = $_FILES['anh']['tmp_name'];
-                $file_type = $_FILES['anh']['type'];
-                $file_erro = $_FILES['anh']['error'];
-
-                if($file_erro == 0)
+           $data['anh'] = '';
+            for ($i=0; $i < count($_FILES['anh']["name"]); $i++) { 
+                echo $_FILES['anh']["name"][$i];
+                if(isset($_FILES['anh']["name"][$i]))
                 {
-                    $part= ROOT ."product/";
-                    $data['anh'] = $file_name;
+                    $file_name = $_FILES['anh']["name"][$i];
+                    $file_tmp = $_FILES['anh']["tmp_name"][$i];
+                    $file_type = $_FILES['anh']["type"][$i];
+                    $file_erro = $_FILES['anh']["error"][$i];
+                    if($file_erro == 0)
+                    {
+                        $part= ROOT ."product/";
+                        $data['anh'] = $data['anh'].$file_name.'|';
+                        move_uploaded_file($file_tmp,$part.$file_name);
+                    }
                 }
             }
             
@@ -145,8 +149,18 @@
 
                                  <div class="form-group">
                                     <label for="exampleInputEmail1">Hình ảnh</label>
-                                    <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="anh">
-                                    <img src="<?php echo uploads() ?>product/<?php echo $EditProduct['anh'] ?>" width="100px" height="100px">
+                                    <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="anh[]">
+                                    <div class="form-group">
+                                        <br>
+                                        <button type="button" class="btn btn-warning addMore">Thêm hình ảnh</button>
+                                    </div>
+                                    <?php 
+                                    $anh = explode('|',$EditProduct['anh']);
+                                    for ($i=0; $i < count($anh)-1; $i++):
+                                    ?>
+                                        <img src="<?php echo uploads() ?>product/<?php echo $anh[$i] ?>" width="100px" height="100px">
+                                    <?php endfor; ?>
+                                    
                                 </div>
 
                                 <div class="form-group">

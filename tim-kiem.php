@@ -29,7 +29,8 @@
                             foreach ($caythuoc as $item) :?>
                             <div class="col-md-3 item-product bor">
                                <a href="chi-tiet-cay-thuoc.php?id=<?php echo $item['maCayThuoc'] ?>">
-                                    <img src="<?php echo uploads() ?>product/<?php echo $item['anh'] ?>" class="" width="100%" height="180">
+                                    <?php $anh = explode('|',$item['anh']); ?>
+                                    <img src="<?php echo uploads() ?>product/<?php echo $anh[0] ?>" class="" width="100%" height="180">
                                 </a>
                                 <div class="info-item">
 

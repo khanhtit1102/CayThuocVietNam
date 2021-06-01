@@ -12,13 +12,8 @@
     }
 
     $sql = "SELECT baithuoc.* , category.name as namecate FROM baithuoc LEFT JOIN category on category.id = baithuoc.id";
-    $baithuoc = $db->fetchJone('baithuoc',$sql,$p,4,true);
-
-    if(isset($baithuoc['page']))
-    {
-        $sotrang = $baithuoc['page'];
-        unset($baithuoc['page']);
-    }
+    $baithuoc = $db->fetchsql($sql);
+    
  ?>
 
 <?php  require_once __DIR__. "/../../layouts/header.php";?>

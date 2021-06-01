@@ -80,6 +80,7 @@
             </div>      
         </div>
     <script  src="<?php echo base_url() ?>public/frontend/js/slick.min.js"></script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
     </body>
         
@@ -122,5 +123,18 @@
     })
     $(".alert").delay(4000).slideUp(200, function() {
         $(this).alert('close');
+    });
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        focusOnSelect: true
     });
 </script>

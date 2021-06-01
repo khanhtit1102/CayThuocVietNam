@@ -12,13 +12,7 @@
     }
 
     $sql = "SELECT caythuoc.* , category.name as namecate FROM caythuoc LEFT JOIN category on category.id = caythuoc.id";
-    $caythuoc = $db->fetchJone('caythuoc',$sql,$p,4,true);
-
-    if(isset($caythuoc['page']))
-    {
-        $sotrang = $caythuoc['page'];
-        unset($caythuoc['page']);
-    }
+    $caythuoc = $db->fetchsql($sql);
  ?>
 
 <?php  require_once __DIR__. "/../../layouts/header.php";?>
@@ -65,7 +59,8 @@
                                         <td><?php echo $item['tenCayThuoc'] ?></td>
                                         <td><?php echo $item['id'] ?></td>
                                         <td>
-                                            <img src="<?php echo uploads() ?>product/<?php echo $item['anh'] ?>" width="80px" height="80px">
+                                            <?php $item['anh'] = explode('|',$item['anh']); ?>
+                                            <img src="<?php echo uploads() ?>product/<?php echo $item['anh'][0] ?>" width="80px" height="80px">
                                         </td>
                                         <td><?php echo $item['slug'] ?></td>
                                         <td>

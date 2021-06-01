@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2021 at 08:11 PM
+-- Generation Time: Jun 01, 2021 at 12:25 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -160,7 +160,8 @@ INSERT INTO `caythuoc` (`maCayThuoc`, `tenCayThuoc`, `tenKhac`, `tenKhoaHoc`, `a
 (13, 'Cây Hoa Cứt Lợn', '', '', '112145_hoa-cut-lon-1.jpg', 'Plantae', 'Asterales', 'Asteraceae', 'Eupatorieae', 'Ageratum', 'A. conyzoides', 'Hoa Cứt Lợn', '', 1, 'cay-hoa-cut-lon', 0),
 (14, 'Cây Rau Diếp Cá', '', '', 'rau-diep-ca (1).jpg', 'Plantae', 'Piperales', 'Saururaceae', '', '', '', '- Phân bố:\r\n    Loài của lục địa châu Á, phân bố từ Ấn Độ qua Trung Quốc, Nhật Bản, Thái Lan, các nước Đông Nam Á. Ở Việt Nam, diếp cá mọc hoang ở chỗ ẩm ướt.\r\nĐặc Điểm: \r\n    Là một loại cỏ nhỏ, mọc quanh năm (evergreen), ưa chỗ ẩm ướt, có thân rễ mọc ngầm dưới đất. Rễ nhỏ mọc ở các đốt. Lá mọc cách (so le), hình tim, có bẹ, đầu lá hơi nhọn hay nhọn hẳn, khi vò ra có mùi tanh như mùi cá. Cây thảo cao 15–50 cm; thân màu lục hoặc tím đỏ, mọc đứng cao 40 cm, có lông hoặc ít lông. Cụm hoa nhỏ hình bông bao bởi 4 lá bắc màu trắng, trong chứa nhiều hoa nhỏ màu vàng nhạt, trông toàn bộ bề ngoài của cụm hoa và lá bắc giống như một cây hoa đơn độc. Quả nang mở ở đỉnh, hạt hình trái xoan, nhẵn. Mùa hoa tháng 5-8, quả tháng 7-10.\r\n- Thành phần hóa học;\r\n      Là một loại cỏ nhỏ, mọc quanh năm (evergreen), ưa chỗ ẩm ướt, có thân rễ mọc ngầm dưới đất. Rễ nhỏ mọc ở các đốt. Lá mọc cách (so le), hình tim, có bẹ, đầu lá hơi nhọn hay nhọn hẳn, khi vò ra có mùi tanh như mùi cá. Cây thảo cao 15–50 cm; thân màu lục hoặc tím đỏ, mọc đứng cao 40 cm, có lông hoặc ít lông. Cụm hoa nhỏ hình bông bao bởi 4 lá bắc màu trắng, trong chứa nhiều hoa nhỏ màu vàng nhạt, trông toàn bộ bề ngoài của cụm hoa và lá bắc giống như một cây hoa đơn độc. Quả nang mở ở đỉnh, hạt hình trái xoan, nhẵn. Mùa hoa tháng 5-8, quả tháng 7-10.\r\n- Chữa bệnh:\r\n    Thường dùng tươi. Có thể phơi hay sấy khô để dùng dần hoặc sắc nước uống.\r\n- Tính vị, tác dụng:\r\n    Theo đông y, giấp cá vị cay, chua, mùi tanh, tính mát (hơi lạnh, theo Hu), hơi độc, tán khí, tán ứ (Kariyone & Kimure), cay vào phế kinh.\r\n- Lưu ý:\r\n    Những người nguyên khí hư, có chứng đau chân không nên dùng. Những người không phải thấp nhiệt và sang độc cũng không nên dùng.\r\n- Trị Bệnh: \r\n   Kháng viêm, cầm máu, sốt, sốt xuất huyết, viêm tai giữa, viêm phổi do sởi,...', '', 1, 'cay-rau-diep-ca', 0),
 (16, 'Cây Ngải Cứu', '', '', 'ngải cứu_1.png', '', '', '', '', '', '', '', '', 1, 'cay-ngai-cuu', 0),
-(18, 'Cây Rau Ngót', '', '', 'hoa-giong-rau-ngot-6.jpg', '', '', '', '', '', '', '', '', 1, 'cay-rau-ngot', 0);
+(18, 'Cây Rau Ngót', '', '', 'hoa-giong-rau-ngot-6.jpg', '', '', '', '', '', '', '', '', 1, 'cay-rau-ngot', 0),
+(19, 'Itaque repudiandae consectetur.', '', '', 'icons8-facebook-512.png|BG.jpg|icons8-near-me-64.png|', '', '', '', '', '', '', '', '', 1, 'itaque-repudiandae-consectetur', 0);
 
 -- --------------------------------------------------------
 
@@ -268,7 +269,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `caythuoc`
 --
 ALTER TABLE `caythuoc`
-  MODIFY `maCayThuoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `maCayThuoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users`

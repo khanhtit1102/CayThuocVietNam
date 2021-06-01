@@ -28,6 +28,10 @@
                     }
                 } );  
             } );
+            $(document).on('click', '.addMore', function(){
+                var html = '<input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="anh[]" width="80%">';
+                $(this).parent().prepend(html);
+            });
         </script>
     </body>
 </html>

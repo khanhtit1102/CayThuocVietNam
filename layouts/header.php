@@ -13,7 +13,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/frontend/css/slick-theme.css"/>
         <!--slide-->
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/frontend/css/style.css">
-        
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
     </head>
     <body>
         <div id="wrapper">
