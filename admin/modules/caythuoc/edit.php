@@ -34,7 +34,7 @@
            
         if(empty($error))
         {
-           $data['anh'] = '';
+            $data['anh'] = implode("|",$_POST['anh_cu']).'|';
             for ($i=0; $i < count($_FILES['anh']["name"]); $i++) { 
                 echo $_FILES['anh']["name"][$i];
                 if(isset($_FILES['anh']["name"][$i]))
@@ -148,19 +148,22 @@
                                 </div>
 
                                  <div class="form-group">
-                                    <label for="exampleInputEmail1">Hình ảnh</label>
-                                    <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="anh[]">
-                                    <div class="form-group">
-                                        <br>
-                                        <button type="button" class="btn btn-warning addMore">Thêm hình ảnh</button>
-                                    </div>
+                                    <label for="exampleInputEmail1">Hình ảnh</label><br>
                                     <?php 
                                     $anh = explode('|',$EditProduct['anh']);
                                     for ($i=0; $i < count($anh)-1; $i++):
                                     ?>
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="anh_cu[]" value="<?php echo $anh[$i] ?>">
                                         <img src="<?php echo uploads() ?>product/<?php echo $anh[$i] ?>" width="100px" height="100px">
+                                        <button type="button" class="btn btn-danger removeImage">Xóa ảnh</button>
+                                    </div>
                                     <?php endfor; ?>
-                                    
+                                    <hr>
+                                    <div class="form-group">
+                                        <br>
+                                        <button type="button" class="btn btn-warning addMore">Thêm hình ảnh</button>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">

@@ -32,6 +32,9 @@
                 var html = '<input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="anh[]" width="80%">';
                 $(this).parent().prepend(html);
             });
+            $(document).on('click', '.removeImage', function(){
+                $(this).parent().remove();
+            });
         </script>
     </body>
 </html>
